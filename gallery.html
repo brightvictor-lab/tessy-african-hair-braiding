@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery | Tessy African Hair Braiding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="gallery.css"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" class="solid">
+    <div class="nav-wrap">
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="nav-brand">
+        <img src="images/logo.png" alt="Tessy" class="nav-logo" onerror="this.style.display='none'"/>
+        <div class="nav-brand-text">
+          <span class="nbt-top">Tessy African</span>
+          <span class="nbt-bot">Hair Braiding</span>
+        </div>
+      </a>
+      
+      <div class="nav-actions">
+        <button class="nav-signin" id="signinBtn" onclick="googleSignIn()">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Sign In
+        </button>
+        <div class="nav-user" id="navUser" style="display:none">
+          <div class="nav-av" id="navAv"></div>
+          <span id="navName"></span>
+        </div>
+        <a href="booking.html" class="nav-book">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#hours">Hours</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="index.html#reviews">Reviews</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="booking.html" class="mob-book">Book Appointment →</a>
+    </div>
+  </nav>
+
+  <!-- GALLERY HERO -->
+  <div class="gl-hero">
+    <div class="gl-hero-inner">
+      <div class="gl-eyebrow">Our Work</div>
+      <h1 class="gl-title">Our <em>Gallery</em></h1>
+      <p class="gl-sub">Every photo is a crown we are proud of</p>
+    </div>
+  </div>
+
+  <!-- GALLERY GRID — 25 images, equal size, no labels -->
+  <section class="gl-section">
+    <div class="container">
+      <div class="gl-grid" id="glGrid">
+        <div class="gl-item" onclick="openLight(0)"><img src="images/g1.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(1)"><img src="images/g2.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(2)"><img src="images/g3.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(3)"><img src="images/g4.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(4)"><img src="images/g5.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(5)"><img src="images/g6.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(6)"><img src="images/g7.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(7)"><img src="images/g8.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(8)"><img src="images/g9.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(9)"><img src="images/g10.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(10)"><img src="images/g11.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(11)"><img src="images/g12.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(12)"><img src="images/g13.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(13)"><img src="images/g14.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(14)"><img src="images/g15.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(15)"><img src="images/g16.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(16)"><img src="images/g17.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(17)"><img src="images/g18.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(18)"><img src="images/g19.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(19)"><img src="images/g20.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(20)"><img src="images/g21.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(21)"><img src="images/g22.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(22)"><img src="images/g23.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(23)"><img src="images/g24.jpg" alt="Hair Style" loading="lazy"/></div>
+        <div class="gl-item" onclick="openLight(24)"><img src="images/g25.jpg" alt="Hair Style" loading="lazy"/></div>
+      </div>
+      <div class="gl-cta">
+        <a href="booking.html" class="btn-gold">Book Your Appointment <i class="fas fa-crown"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLight()">
+    <button class="lb-close" onclick="closeLight()"><i class="fas fa-times"></i></button>
+    <button class="lb-prev" onclick="event.stopPropagation(); moveLight(-1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="lb-wrap" onclick="event.stopPropagation()">
+      <img id="lbImg" src="" alt="Hair Style"/>
+    </div>
+    <button class="lb-next" onclick="event.stopPropagation(); moveLight(1)"><i class="fas fa-chevron-right"></i></button>
+    <div class="lb-counter" id="lbCounter">1 / 25</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="images/logo.png" alt="Tessy" onerror="this.style.display='none'"/>
+            <div><strong>Tessy African Hair Braiding</strong><span>Beauty in Every Braid</span></div>
+          </div>
+          <p class="footer-desc">Professional African hair braiding in Lindenwold, NJ. Over 10 years of experience. Hair included in all prices.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <a href="index.html#services">Knotless Braids</a>
+          <a href="index.html#services">Box Braids</a>
+          <a href="index.html#services">Butterfly Locs</a>
+          <a href="index.html#services">View All →</a>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="booking.html">Book Appointment</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="index.html#about">About Tessy</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Tessy African Hair Braiding · Lindenwold, NJ · 914-261-1441 · Beauty in Every Braid ✦</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>

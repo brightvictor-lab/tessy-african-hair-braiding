@@ -1,0 +1,14 @@
+# Local env / secrets (never commit real keys)
+.env
+.env.*
+config.local.js
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# Claude Code internal state
+.claude/

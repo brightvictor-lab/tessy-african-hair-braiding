@@ -1,0 +1,143 @@
+/* =============================================
+   TESSY AFRICAN HAIR BRAIDING — GALLERY STYLES
+   ============================================= */
+
+.nav-active{color:var(--gold2)!important}
+.nav-active::after{width:100%!important}
+
+/* ===== GALLERY HERO ===== */
+.gl-hero{background:var(--black2);padding:140px 2rem 4rem;text-align:center;border-bottom:1px solid rgba(212,160,23,.1)}
+.gl-hero-inner{max-width:600px;margin:0 auto}
+.gl-eyebrow{font-size:.64rem;letter-spacing:4.5px;text-transform:uppercase;color:var(--gold2);font-weight:800;margin-bottom:.7rem;display:flex;align-items:center;justify-content:center;gap:10px}
+.gl-eyebrow::before,.gl-eyebrow::after{content:'';width:26px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.gl-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4rem);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:.8rem}
+.gl-title em{color:var(--gold2);font-style:italic}
+.gl-sub{font-family:'Dancing Script',cursive;font-size:1.3rem;color:rgba(255,255,255,.38);line-height:1.7}
+
+/* ===== GALLERY SECTION ===== */
+.gl-section{padding:4rem 0 5rem;background:var(--black)}
+
+/* ===== GALLERY GRID — equal square boxes ===== */
+.gl-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:3rem}
+.gl-item{
+  position:relative;overflow:hidden;
+  aspect-ratio:1/1;
+  background:var(--black2);
+  cursor:pointer;
+}
+.gl-item img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+  transition:transform .4s ease, filter .4s ease;
+  will-change:transform;
+}
+.gl-item:hover img{transform:scale(1.06);filter:brightness(.8)}
+.gl-item:hover::after{opacity:1}
+.gl-item::after{
+  content:'\f065';
+  font-family:'Font Awesome 6 Free';
+  font-weight:900;
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;color:var(--white);
+  background:rgba(5,5,5,.42);
+  opacity:0;
+  transition:opacity .3s ease;
+}
+.gl-cta{text-align:center;padding-top:1rem}
+
+/* ===== LIGHTBOX ===== */
+.lightbox{
+  position:fixed;inset:0;z-index:99999;
+  background:rgba(0,0,0,.96);
+  display:none;  /* hidden by default */
+  align-items:center;
+  justify-content:center;
+  transition:opacity .3s ease;
+  opacity:0;
+}
+/* open class makes it visible */
+.lightbox.open{
+  opacity:1;
+}
+.lb-wrap{
+  position:relative;
+  max-width:92vw;
+  max-height:88vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.lb-wrap img{
+  max-width:92vw;
+  max-height:88vh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  display:block;
+  border-radius:6px;
+  box-shadow:0 20px 80px rgba(0,0,0,.9);
+  transition:opacity .18s ease, transform .18s ease;
+}
+.lb-close{
+  position:absolute;top:1rem;right:1rem;
+  background:rgba(212,160,23,.12);
+  border:1px solid rgba(212,160,23,.3);
+  color:var(--gold2);
+  width:44px;height:44px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;cursor:pointer;
+  border-radius:50%;
+  transition:background .3s;
+  z-index:3;
+}
+.lb-close:hover{background:rgba(212,160,23,.28)}
+.lb-prev,.lb-next{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(212,160,23,.1);
+  border:1px solid rgba(212,160,23,.25);
+  color:var(--gold2);
+  width:48px;height:48px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;cursor:pointer;
+  transition:all .3s;
+  z-index:3;
+}
+.lb-prev{left:1rem}
+.lb-next{right:1rem}
+.lb-prev:hover,.lb-next:hover{background:rgba(212,160,23,.22);border-color:var(--gold2)}
+.lb-counter{
+  position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+  font-size:.7rem;font-weight:700;letter-spacing:2px;
+  color:rgba(255,255,255,.45);
+  background:rgba(0,0,0,.6);
+  padding:5px 14px;border-radius:20px;
+  z-index:3;
+}
+
+/* ===== GALLERY PREVIEW on homepage ===== */
+#gallery-preview{background:var(--black3)}
+.gp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem}
+.gp-item{overflow:hidden;border-radius:12px;aspect-ratio:3/4;background:var(--black2)}
+.gp-item img{width:100%;height:100%;object-fit:cover;display:block;border-radius:12px;transition:transform .4s ease;will-change:transform}
+.gp-item:hover img{transform:scale(1.04)}
+.gp-cta{text-align:center}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1200px){.gl-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:900px){
+  .gl-grid{grid-template-columns:repeat(3,1fr);gap:6px}
+  .gl-hero{padding:90px 1.5rem 3rem}
+  .gp-grid{grid-template-columns:repeat(4,1fr);gap:.6rem}
+}
+@media(max-width:600px){
+  .gl-grid{grid-template-columns:repeat(2,1fr);gap:5px}
+  .gl-hero{padding:80px 1.2rem 2.5rem}
+  .gl-title{font-size:clamp(2rem,8vw,3rem)}
+  .lb-prev{left:.3rem}
+  .lb-next{right:.3rem}
+  .lb-prev,.lb-next{width:38px;height:38px;font-size:.85rem}
+  /* 2x2 on mobile */
+  .gp-grid{grid-template-columns:repeat(2,1fr);gap:.6rem}
+}
+@media(max-width:380px){.gl-grid{grid-template-columns:repeat(2,1fr);gap:4px}}

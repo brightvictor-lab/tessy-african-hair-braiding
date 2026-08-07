@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reschedule Appointment | Tessy African Hair Braiding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Raleway',sans-serif;background:radial-gradient(ellipse at top,#1a1000,#050505);color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem}
+    .box{max-width:620px;width:100%;text-align:center}
+    .logo{width:70px;height:70px;border-radius:50%;object-fit:cover;border:3px solid #D4A017;box-shadow:0 0 30px rgba(212,160,23,.4);margin:0 auto 1rem}
+    .brand{font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1.3rem}
+    .title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;margin-bottom:.5rem}
+    .sub{color:rgba(255,255,255,.5);font-size:.84rem;margin-bottom:1.6rem;line-height:1.8}
+    .spinner{width:50px;height:50px;border:3px solid rgba(212,160,23,.15);border-top-color:#F0C040;border-radius:50%;animation:spin .75s linear infinite;margin:0 auto 1.5rem}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* Current booking info */
+    .current{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:1rem 1.3rem;margin-bottom:1.3rem;text-align:left}
+    .current-h{font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.6rem;font-weight:700}
+    .cr-row{display:flex;justify-content:space-between;gap:1rem;padding:.35rem 0;font-size:.78rem}
+    .cr-row .lbl{color:rgba(255,255,255,.45);font-size:.7rem}
+    .cr-row .val{color:#fff;font-weight:600;text-align:right}
+
+    /* Section blocks */
+    .block{text-align:left;background:rgba(212,160,23,.05);border:1px solid rgba(212,160,23,.18);padding:1.3rem 1.4rem;margin-bottom:1.2rem}
+    .block-h{display:flex;align-items:center;gap:8px;font-size:.66rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#F0C040;margin-bottom:1rem}
+    .block-h i{font-size:.75rem}
+
+    /* Calendar (same style as booking) */
+    .cal-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem}
+    .cal-month{font-family:'Playfair Display',serif;font-size:.95rem;color:#fff;font-weight:700}
+    .cal-nav-btn{background:none;border:1px solid rgba(212,160,23,.25);color:#F0C040;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:.74rem;cursor:pointer;transition:all .2s}
+    .cal-nav-btn:hover{background:rgba(212,160,23,.1)}
+    .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+    .cal-dh{text-align:center;font-size:.55rem;font-weight:800;color:rgba(255,255,255,.2);letter-spacing:1px;padding:4px 0;text-transform:uppercase}
+    .cal-d{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:.74rem;cursor:pointer;transition:all .2s;color:rgba(255,255,255,.65);position:relative;font-weight:600}
+    .cal-d:hover:not(.emp):not(.past){background:rgba(212,160,23,.15);color:#F0C040}
+    .cal-d.past{color:rgba(255,255,255,.12);cursor:not-allowed}
+    .cal-d.today{color:#F0C040;font-weight:900}
+    .cal-d.sel{background:linear-gradient(135deg,#D4A017,#F0C040);color:#000;font-weight:900}
+    .cal-d.has::after{content:'';width:4px;height:4px;background:#F0C040;border-radius:50%;position:absolute;bottom:2px}
+    .cal-d.emp{cursor:default}
+
+    /* Time slots */
+    .slots-lbl{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:#F0C040;margin-bottom:.7rem;font-weight:800}
+    .slots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem}
+    .slot{padding:9px;border:1px solid rgba(212,160,23,.18);text-align:center;cursor:pointer;font-size:.72rem;font-weight:700;color:rgba(255,255,255,.55);transition:all .2s;background:#0a0a0a}
+    .slot:hover{border-color:#F0C040;color:#F0C040;background:rgba(212,160,23,.05)}
+    .slot.sel{background:linear-gradient(135deg,#D4A017,#F0C040);color:#000;border-color:#F0C040}
+    .no-slot{color:rgba(255,255,255,.2);font-style:italic;font-size:.74rem;padding:1rem 0;text-align:center;grid-column:1/-1}
+
+    /* Reason */
+    .reason-area{
+      width:100%;background:#0a0a0a;border:1px solid rgba(212,160,23,.25);
+      color:#fff;padding:11px 13px;font-family:'Raleway',sans-serif;font-size:.84rem;font-weight:500;
+      outline:none;transition:border-color .3s;resize:vertical;min-height:70px;
+    }
+    .reason-area:focus{border-color:#F0C040;box-shadow:0 0 0 2px rgba(212,160,23,.1)}
+    .reason-area::placeholder{color:rgba(255,255,255,.2)}
+    .field-hint{font-size:.6rem;color:rgba(255,255,255,.3);margin-top:.5rem;letter-spacing:.5px}
+
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#D4A017,#F0C040);color:#000;padding:14px 32px;font-weight:800;font-size:.76rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;font-family:'Raleway',sans-serif;transition:all .3s;width:100%;justify-content:center}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(212,160,23,.4)}
+    .btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+    .btn-back{background:transparent;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);margin-top:.7rem;width:100%}
+    .btn-back:hover{transform:none;box-shadow:none;border-color:#F0C040;color:#F0C040}
+
+    /* Success */
+    .check-wrap{margin:0 auto 1.3rem;width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#D4A017,#F0C040);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(212,160,23,.5);animation:checkPop .5s cubic-bezier(.34,1.56,.64,1)}
+    .check-wrap i{font-size:2.2rem;color:#000}
+    @keyframes checkPop{0%{transform:scale(0)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+    .success-banner{background:linear-gradient(135deg,rgba(212,160,23,.15),rgba(240,192,64,.08));border:2px solid #F0C040;padding:1rem 1.4rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:10px;animation:fadeUp .5s ease}
+    .success-banner i{color:#F0C040;font-size:1rem}
+    .success-banner span{font-size:.74rem;font-weight:800;color:#F0C040;letter-spacing:1.5px;text-transform:uppercase}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .details{background:rgba(212,160,23,.06);border:1px solid rgba(212,160,23,.2);padding:1.3rem 1.5rem;margin-bottom:1.5rem;text-align:left}
+    .det-row{display:flex;justify-content:space-between;align-items:flex-start;padding:.5rem 0;border-bottom:1px solid rgba(212,160,23,.08);font-size:.8rem;gap:1rem}
+    .det-row:last-child{border:none}
+    .det-row .lbl{color:#F0C040;font-weight:800;letter-spacing:1px;text-transform:uppercase;font-size:.6rem;flex-shrink:0}
+    .det-row .val{color:#fff;font-weight:600;text-align:right;word-break:break-word}
+    .error-box{background:rgba(255,80,80,.08);border:1px solid rgba(255,80,80,.25);padding:1rem 1.4rem;color:rgba(255,150,150,.85);font-size:.74rem;line-height:1.7;margin-top:1rem;text-align:left;word-break:break-word}
+    .ico-fail{font-size:3rem;margin-bottom:1rem;color:#ef4444}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <img src="images/logo.png" alt="Tessy" class="logo" onerror="this.style.display='none'"/>
+    <div class="brand">Tessy African Hair Braiding</div>
+
+    <!-- FORM SCREEN -->
+    <div id="formScreen">
+      <h2 class="title">Reschedule Appointment</h2>
+      <p class="sub">Pick a new date and time for this booking. Your client will be notified by email.</p>
+
+      <!-- Current booking info -->
+      <div class="current">
+        <div class="current-h">Current Booking</div>
+        <div class="cr-row"><span class="lbl">Client</span><span class="val" id="curName">—</span></div>
+        <div class="cr-row"><span class="lbl">Style</span><span class="val" id="curStyle">—</span></div>
+        <div class="cr-row"><span class="lbl">Date</span><span class="val" id="curDate">—</span></div>
+        <div class="cr-row"><span class="lbl">Time</span><span class="val" id="curTime">—</span></div>
+      </div>
+
+      <!-- DATE PICKER -->
+      <div class="block">
+        <div class="block-h"><i class="fas fa-calendar"></i> Pick New Date</div>
+        <div class="cal-top">
+          <button class="cal-nav-btn" onclick="chMon(-1)"><i class="fas fa-chevron-left"></i></button>
+          <div class="cal-month" id="calMonth"></div>
+          <button class="cal-nav-btn" onclick="chMon(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+      </div>
+
+      <!-- TIME PICKER -->
+      <div class="block">
+        <div class="block-h"><i class="fas fa-clock"></i> Pick New Time</div>
+        <div class="slots-lbl" id="slotsLbl">Select a date first</div>
+        <div class="slots-grid" id="slotsGrid"><div class="no-slot">← Pick a date above</div></div>
+      </div>
+
+      <!-- REASON NOTE -->
+      <div class="block">
+        <div class="block-h"><i class="fas fa-comment"></i> Reference Note (Optional)</div>
+        <textarea id="reason" class="reason-area" placeholder="e.g. I have an emergency that day, or I'm out of town..."></textarea>
+        <div class="field-hint">This note will be included in the email sent to your client</div>
+      </div>
+
+      <button class="btn" id="submitBtn" onclick="submitReschedule()" disabled>
+        <i class="fas fa-paper-plane"></i> Send Reschedule Notice
+      </button>
+      <a href="index.html" class="btn btn-back"><i class="fas fa-arrow-left"></i> Cancel</a>
+    </div>
+
+    <!-- LOADING -->
+    <div id="loading" style="display:none">
+      <div class="spinner"></div>
+      <h2 class="title">Sending Notice...</h2>
+      <p class="sub">Please wait while we send the reschedule email to your client.</p>
+    </div>
+
+    <!-- SUCCESS -->
+    <div id="success" style="display:none">
+      <div class="check-wrap"><i class="fas fa-check"></i></div>
+      <h2 class="title" style="color:#F0C040">Reschedule Sent!</h2>
+      <div class="success-banner">
+        <i class="fas fa-envelope-circle-check"></i>
+        <span>Email Notification Sent Successfully</span>
+      </div>
+      <p class="sub">Your client has been notified of the new appointment date and time. Their $50 deposit will carry over to the new appointment.</p>
+      <div class="details" id="successDetails"></div>
+      <a href="index.html" class="btn"><i class="fas fa-home"></i> Back to Website</a>
+    </div>
+
+    <!-- ERROR -->
+    <div id="error" style="display:none">
+      <div class="ico-fail"><i class="fas fa-circle-xmark"></i></div>
+      <h2 class="title">Something Went Wrong</h2>
+      <p class="sub">The reschedule email could not be sent. Please try again or contact the client directly.</p>
+      <div class="error-box" id="errorMsg"></div>
+      <button class="btn" onclick="location.reload()"><i class="fas fa-rotate-right"></i> Try Again</button>
+    </div>
+  </div>
+
+  <script>
+    // ===== EmailJS — Rabus account (UNCHANGED) =====
+    const EJ_KEY      = 'YOUR_EMAILJS_PUBLIC_KEY';
+    const EJ_SERVICE  = 'YOUR_EMAILJS_SERVICE_ID';
+    const EJ_TEMPLATE = 'YOUR_RESCHEDULE_TEMPLATE_ID';
+
+    // ===== URL params =====
+    const params  = new URLSearchParams(window.location.search);
+    const name    = params.get('name')  || 'Customer';
+    const email   = params.get('email') || '';
+    const style   = params.get('style') || '';
+    const oldDate = params.get('date')  || '';
+    const oldTime = params.get('time')  || '';
+    const ref     = params.get('ref')   || '';
+
+    const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+    // State
+    const S = {
+      newDate: null,
+      newTime: null,
+      m: new Date().getMonth(),
+      y: new Date().getFullYear()
+    };
+
+    // ===== INIT =====
+    window.addEventListener('load', () => {
+      if (!email) {
+        document.getElementById('formScreen').style.display = 'none';
+        showError('Missing customer email. The link from the booking notification appears incomplete. Please open the original notification email and click the Reschedule button again.');
+        return;
+      }
+      document.getElementById('curName').textContent  = name;
+      document.getElementById('curStyle').textContent = style;
+      document.getElementById('curDate').textContent  = oldDate;
+      document.getElementById('curTime').textContent  = oldTime;
+      buildCal();
+    });
+
+    // ===== CALENDAR (same logic as booking page) =====
+    function buildCal() {
+      const { m, y } = S;
+      document.getElementById('calMonth').textContent = `${MONTHS[m]} ${y}`;
+      const g = document.getElementById('calGrid');
+      g.innerHTML = '';
+
+      ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(d => {
+        const e = document.createElement('div');
+        e.className   = 'cal-dh';
+        e.textContent = d;
+        g.appendChild(e);
+      });
+
+      const first = new Date(y, m, 1).getDay();
+      const total = new Date(y, m + 1, 0).getDate();
+      const today = new Date();
+
+      for (let i = 0; i < first; i++) {
+        const e = document.createElement('div');
+        e.className = 'cal-d emp';
+        g.appendChild(e);
+      }
+
+      for (let d = 1; d <= total; d++) {
+        const el  = document.createElement('div');
+        el.className   = 'cal-d';
+        el.textContent = d;
+        const dt   = new Date(y, m, d);
+        const past = dt < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        const mon  = dt.getDay() === 1; // Monday closed
+
+        if (past || mon) {
+          el.classList.add('past');
+          if (mon) el.title = 'Closed on Mondays';
+        } else {
+          if (dt.toDateString() === today.toDateString()) el.classList.add('today');
+          el.classList.add('has');
+          el.addEventListener('click', () => {
+            g.querySelectorAll('.sel').forEach(x => x.classList.remove('sel'));
+            el.classList.add('sel');
+            const ds = `${MONTHS[m]} ${d}, ${y}`;
+            S.newDate = ds;
+            S.newTime = null;
+            buildSlots(ds, dt.getDay());
+            checkForm();
+          });
+        }
+        g.appendChild(el);
+      }
+    }
+
+    function chMon(d) {
+      S.m += d;
+      if (S.m > 11) { S.m = 0;  S.y++; }
+      if (S.m < 0)  { S.m = 11; S.y--; }
+      buildCal();
+    }
+
+    // ===== TIME SLOTS =====
+    function buildSlots(ds, dow) {
+      document.getElementById('slotsLbl').textContent = ds;
+      let all;
+      if (dow === 6)      all = ['7:00 AM','8:00 AM','9:00 AM','10:00 AM','11:00 AM','12:00 PM','1:00 PM','2:00 PM','3:00 PM','4:00 PM','5:00 PM'];
+      else if (dow === 0) all = ['8:00 AM','9:00 AM','10:00 AM','11:00 AM','12:00 PM','1:00 PM','2:00 PM','3:00 PM'];
+      else                all = ['9:30 AM','10:30 AM','11:30 AM','12:30 PM','1:30 PM','2:30 PM','3:30 PM'];
+
+      document.getElementById('slotsGrid').innerHTML = all.map(s =>
+        `<div class="slot" onclick="pickSlot(this,'${s}')">${s}</div>`
+      ).join('');
+    }
+
+    function pickSlot(el, t) {
+      document.querySelectorAll('.slot.sel').forEach(x => x.classList.remove('sel'));
+      el.classList.add('sel');
+      S.newTime = t;
+      checkForm();
+    }
+
+    // ===== CHECK FORM =====
+    function checkForm() {
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = !(S.newDate && S.newTime);
+    }
+
+    // ===== SUBMIT =====
+    async function submitReschedule() {
+      if (!S.newDate || !S.newTime) return;
+      const reason = document.getElementById('reason').value.trim();
+
+      document.getElementById('formScreen').style.display = 'none';
+      document.getElementById('loading').style.display    = 'block';
+
+      try {
+        emailjs.init(EJ_KEY);
+        await emailjs.send(EJ_SERVICE, EJ_TEMPLATE, {
+          to_name:     name,
+          to_email:    email,
+          style:       style,
+          date:        oldDate,
+          time:        oldTime,
+          new_date:    S.newDate,
+          new_time:    S.newTime,
+          reason:      reason || 'a scheduling conflict',
+          booking_ref: ref
+        });
+        showSuccess(reason);
+      } catch (err) {
+        const msg = err?.text || err?.message || JSON.stringify(err) || 'Unknown error';
+        showError('Error: ' + msg);
+      }
+    }
+
+    function showSuccess(reason) {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+      document.getElementById('successDetails').innerHTML = `
+        <div class="det-row"><span class="lbl">Client</span><span class="val">${name}</span></div>
+        <div class="det-row"><span class="lbl">Email</span><span class="val">${email}</span></div>
+        <div class="det-row"><span class="lbl">Style</span><span class="val">${style}</span></div>
+        <div class="det-row"><span class="lbl">Original</span><span class="val">${oldDate} at ${oldTime}</span></div>
+        <div class="det-row"><span class="lbl">New Date</span><span class="val" style="color:#F0C040">${S.newDate}</span></div>
+        <div class="det-row"><span class="lbl">New Time</span><span class="val" style="color:#F0C040">${S.newTime}</span></div>
+        ${reason ? `<div class="det-row"><span class="lbl">Note</span><span class="val">${reason}</span></div>` : ''}
+        <div class="det-row"><span class="lbl">Booking Ref</span><span class="val">${ref}</span></div>
+      `;
+    }
+
+    function showError(msg) {
+      document.getElementById('formScreen').style.display = 'none';
+      document.getElementById('loading').style.display    = 'none';
+      document.getElementById('error').style.display      = 'block';
+      document.getElementById('errorMsg').textContent     = msg;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Appointment | Tessy African Hair Braiding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;500;600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="booking.css"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="bk-header">
+    <a href="index.html" class="bk-logo">
+      <img src="images/logo.png" alt="Tessy" onerror="this.style.display='none'"/>
+      <div>
+        <strong>Tessy African Hair Braiding</strong>
+        <span>Beauty in Every Braid</span>
+      </div>
+    </a>
+    <a href="index.html" class="bk-back"><i class="fas fa-arrow-left"></i> Back</a>
+  </header>
+
+  <div class="bk-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="bk-side">
+      <div class="side-logo-wrap">
+        <img src="images/logo.png" alt="Tessy" class="side-logo" onerror="this.style.display='none'"/>
+        <div class="side-logo-name">Tessy African<br/>Hair Braiding</div>
+        <div class="side-logo-tag">Beauty in Every Braid</div>
+      </div>
+      <div class="side-info">
+        <div class="si-row"><i class="fas fa-map-marker-alt"></i><span>132 Colonial Square Dr, Lindenwold NJ 08021</span></div>
+        <div class="si-row"><i class="fas fa-phone"></i><span>914-261-1441</span></div>
+        <div class="si-row"><i class="fas fa-clock"></i><span>Tue–Fri 9:30am–5pm · Sat 7am–6pm · Sun 8am–4pm</span></div>
+        <div class="si-row"><i class="fas fa-shield-alt"></i><span>$50 deposit required · Balance cash only</span></div>
+      </div>
+      <div class="side-summary" id="sideSummary">
+        <div class="ss-title">Your Booking</div>
+        <div class="ss-row"><span>Style</span><strong id="ssStyle">—</strong></div>
+        <div class="ss-row"><span>Date</span><strong id="ssDate">—</strong></div>
+        <div class="ss-row"><span>Time</span><strong id="ssTime">—</strong></div>
+        <div class="ss-row"><span>Deposit</span><strong class="gold">$50.00</strong></div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="bk-main">
+
+      <!-- STEP BAR — 7 steps -->
+      <div class="step-bar">
+        <div class="step active" id="st0"><div class="st-num">1</div><div class="st-lbl">Terms</div></div>
+        <div class="st-line" id="sl0"></div>
+        <div class="step" id="st1"><div class="st-num">2</div><div class="st-lbl">Sign In</div></div>
+        <div class="st-line" id="sl1"></div>
+        <div class="step" id="st2"><div class="st-num">3</div><div class="st-lbl">Style</div></div>
+        <div class="st-line" id="sl2"></div>
+        <div class="step" id="st3"><div class="st-num">4</div><div class="st-lbl">Date & Time</div></div>
+        <div class="st-line" id="sl3"></div>
+        <div class="step" id="st4"><div class="st-num">5</div><div class="st-lbl">Phone</div></div>
+        <div class="st-line" id="sl4"></div>
+        <div class="step" id="st5"><div class="st-num">6</div><div class="st-lbl">Payment</div></div>
+        <div class="st-line" id="sl5"></div>
+        <div class="step" id="st6"><div class="st-num">7</div><div class="st-lbl">Confirm</div></div>
+      </div>
+
+      <!-- ===== STEP 0: TERMS ===== -->
+      <div class="card active" id="card0">
+        <div class="card-head">
+          <h2 class="card-title">Terms & Conditions</h2>
+          <p class="card-sub">Read all terms carefully — scroll to the bottom to enable the agree button</p>
+        </div>
+        <div class="terms-wrap">
+          <div class="terms-scroll" id="termsScroll">
+
+            <div class="ts-block">
+              <h3>✦ Please Read Before Booking</h3>
+              <div class="ts-highlight">ALL PRICES INCLUDE BRAIDING HAIR — except Crochet. Prices may vary based on hair length and complexity of style.</div>
+              <p>We offer a variety of styles. If you are interested in a style not listed, please contact us with a photo via text or email. Kids braids are available for children 7 years and older.</p>
+            </div>
+
+            <div class="ts-block">
+              <h3>✦ About Mrs. Tessy Inneh</h3>
+              <p>My name is Mrs. Tessy Inneh, CEO and founder of Tessy African Hair Braiding. Originally from Nigeria with 10+ years of professional braiding experience. "Very attentive, quick and reliable service."</p>
+            </div>
+
+            <div class="ts-block">
+              <h3>✦ Full Price List</h3>
+              <table class="ts-table">
+                <thead><tr><th>Style</th><th>Price</th><th>Note</th></tr></thead>
+                <tbody>
+                  <tr><td>Kids Braids</td><td class="tp">Call for Pricing</td><td>Ages 7+</td></tr>
+                  <tr><td>Small Bohemian Knotless Braids</td><td class="tp">$350</td><td>Hair Included</td></tr>
+                  <tr><td>Medium Bohemian Knotless Braids</td><td class="tp">$300</td><td>Hair Included</td></tr>
+                  <tr><td>Micro Braids</td><td class="tp">$300</td><td>Hair Included</td></tr>
+                  <tr><td>Boho Bob Knotless Braids</td><td class="tp">$250</td><td>Hair Included</td></tr>
+                  <tr><td>Small Knotless Braids</td><td class="tp">$250</td><td>Hair Included</td></tr>
+                  <tr><td>Butterfly Locs</td><td class="tp">$250</td><td>Hair Included</td></tr>
+                  <tr><td>Soft Locs</td><td class="tp">$250</td><td>Hair Included</td></tr>
+                  <tr><td>S/Medium Knotless Braids</td><td class="tp">$225</td><td>Hair Included</td></tr>
+                  <tr><td>Small Box Braids</td><td class="tp">$220</td><td>Hair Included</td></tr>
+                  <tr><td>Medium Knotless Braids</td><td class="tp">$200</td><td>Hair Included</td></tr>
+                  <tr><td>S/Medium Box Braids</td><td class="tp">$200</td><td>Hair Included</td></tr>
+                  <tr><td>Passion Twist</td><td class="tp">$200</td><td>Hair Included</td></tr>
+                  <tr><td>Senegalese Twist</td><td class="tp">$200</td><td>Hair Included</td></tr>
+                  <tr><td>Medium Kinky Twist</td><td class="tp">$200</td><td>Hair Included</td></tr>
+                  <tr><td>Cornrow Braids</td><td class="tp">$180</td><td>Hair Included</td></tr>
+                  <tr><td>Crochet</td><td class="tp">$120up</td><td>⚠️ Hair NOT Included</td></tr>
+                  <tr><td>Touch Up</td><td class="tp">$90up</td><td>Price varies</td></tr>
+                  <tr><td>Re-Twist</td><td class="tp">$80</td><td>Maintenance</td></tr>
+                  <tr><td>Hair Take Out</td><td class="tp">$50up</td><td>Price varies</td></tr>
+                  <tr><td>Cornrows for Wig</td><td class="tp">$50</td><td>Hair Included</td></tr>
+                  <tr><td>Men Cornrows</td><td class="tp">$50</td><td></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="ts-block">
+              <h3>✦ Working Hours</h3>
+              <p><strong>Monday:</strong> CLOSED</p>
+              <p><strong>Tuesday – Friday:</strong> 9:30 AM – 5:00 PM</p>
+              <p><strong>Saturday:</strong> 7:00 AM – 6:00 PM</p>
+              <p><strong>Sunday:</strong> 8:00 AM – 4:00 PM</p>
+            </div>
+
+            <div class="ts-block">
+              <h3>✦ Deposit & Cancellation Policy</h3>
+              <div class="ts-highlight">A NON-REFUNDABLE $50 deposit is required to secure your appointment. The balance is due in CASH ONLY on your appointment day.</div>
+              <p>The $50 deposit is non-refundable in the event of a cancellation or no-show. Should a client be unable to attend their scheduled appointment, they are permitted to reschedule <strong>once</strong> using their existing deposit. After one reschedule, the deposit is forfeited and a new $50 deposit will be required to book again. There is a 10-minute grace period for late arrivals — please notify us in advance. Clients must be 7 years and older.</p>
+            </div>
+
+            <div class="ts-block">
+              <h3>✦ Guest Policy</h3>
+              <div class="ts-highlight">Clients must attend their appointment alone. No additional guests or companions are permitted.</div>
+              <p>For <strong>children's appointments</strong>, one parent or guardian may remain with the child during the appointment.</p>
+              <p>For <strong>adult appointments</strong>, clients must attend by themselves, and no accompanying person will be allowed to stay.</p>
+            </div>
+
+            <div class="ts-block">
+              <h3>✦ Hair Preparation — MANDATORY</h3>
+              <div class="ts-highlight">Your hair MUST be properly prepared before your appointment — NO EXCEPTIONS.</div>
+              <p>Hair must be clean, product-free, completely detangled, and blow-dried from root to tips for ALL styles. Braiding hair is provided for all non-crochet services.</p>
+            </div>
+
+            <div class="ts-block">
+              <h3>✦ Payment Methods</h3>
+              <p><strong>Zelle:</strong> 914-261-1441</p>
+              <p><strong>Cash App:</strong> YOUR_CASHAPP_TAG</p>
+              <p><strong>Apple Pay:</strong> 914-261-1441</p>
+              <p>Remaining balance is CASH ONLY on appointment day.</p>
+            </div>
+
+            <div class="ts-block">
+              <h3>✦ Contact & Location</h3>
+              <p><strong>Address:</strong> 132 Colonial Square Dr, Lindenwold NJ 08021</p>
+              <p><strong>Phone:</strong> 914-261-1441</p>
+              <p><strong>Email:</strong> tessyafricanhairbraiding@gmail.com</p>
+              <p><strong>Facebook:</strong> Tessy Africa Braids</p>
+            </div>
+
+            <div class="ts-block ts-last">
+              <div class="ts-highlight">By clicking "I Agree & Continue" you confirm you have read all terms above. You understand the $50 deposit is non-refundable and hair preparation requirements are mandatory with no exceptions.</div>
+              <div class="ts-highlight" style="margin-top:10px">
+                <strong>Please do not send your deposit until you have received a confirmation that your appointment has been approved.</strong>
+              </div>
+            </div>
+
+          </div>
+          <div class="terms-footer">
+            <div class="terms-hint" id="termsHint"><i class="fas fa-arrow-down"></i> Scroll to read all terms</div>
+            <button class="btn-agree" id="agreeBtn" onclick="nextStep(1)" disabled>I Agree &amp; Continue <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== STEP 1: SIGN IN ===== -->
+      <div class="card" id="card1">
+        <div class="card-head">
+          <h2 class="card-title">Sign In</h2>
+          <p class="card-sub">Sign in with your Google account to continue</p>
+        </div>
+        <div class="signed-in" id="signedIn">
+          <div class="si-av" id="siAv"></div>
+          <div><div class="si-name" id="siName"></div><div class="si-email" id="siEmail"></div></div>
+          <button class="si-out" onclick="signOut()">Sign out</button>
+        </div>
+        <div id="signInForm">
+          <div class="signin-center">
+            <div class="signin-logo-wrap">
+              <img src="images/logo.png" alt="Tessy" class="signin-logo" onerror="this.outerHTML='<span style=\'font-size:3rem\'>👑</span>'"/>
+            </div>
+            <h2 class="signin-title">Sign In to Continue</h2>
+            <p class="signin-desc">Sign in with your Google account to confirm your booking and receive appointment updates from Tessy African Hair Braiding.</p>
+            <button class="btn-google" onclick="googleSignIn()">
+              <svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              Continue with Google
+            </button>
+            <p class="signin-note">Google will share your name and email with Tessy African Hair Braiding for booking purposes only.</p>
+          </div>
+        </div>
+        <div id="signInLoading" style="display:none">
+          <div class="loading-center"><div class="spinner"></div><span>Signing you in...</span></div>
+        </div>
+        <div class="card-nav">
+          <button class="btn-back" onclick="nextStep(0)"><i class="fas fa-arrow-left"></i> Back</button>
+          <button class="btn-next" id="nx1" disabled onclick="nextStep(2)">Continue <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- ===== STEP 2: CHOOSE STYLE ===== -->
+      <div class="card" id="card2">
+        <div class="card-head">
+          <h2 class="card-title">Choose Your Style</h2>
+          <p class="card-sub">Select your braiding style · Hair included in all prices except Crochet</p>
+        </div>
+        <div class="style-grid">
+          <div class="sty" data-s="Small Bohemian Knotless Braids" data-p="$350" onclick="pickStyle(this)"><img src="images/styles/small-bohemian-knotless.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Small Bohemian Knotless</div><div class="sty-note">Hair Included</div><div class="sty-price">$350</div></div></div>
+          <div class="sty" data-s="Medium Bohemian Knotless Braids" data-p="$300" onclick="pickStyle(this)"><img src="images/styles/medium-bohemian-knotless.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Medium Bohemian Knotless</div><div class="sty-note">Hair Included</div><div class="sty-price">$300</div></div></div>
+          <div class="sty" data-s="Micro Braids" data-p="$300" onclick="pickStyle(this)"><img src="images/styles/micro-braids.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Micro Braids</div><div class="sty-note">Hair Included</div><div class="sty-price">$300</div></div></div>
+          <div class="sty" data-s="Boho Bob Knotless Braids" data-p="$250" onclick="pickStyle(this)"><img src="images/styles/boho-bob-knotless.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Boho Bob Knotless</div><div class="sty-note">Hair Included</div><div class="sty-price">$250</div></div></div>
+          <div class="sty" data-s="Small Knotless Braids" data-p="$250" onclick="pickStyle(this)"><img src="images/styles/small-knotless.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Small Knotless Braids</div><div class="sty-note">Hair Included</div><div class="sty-price">$250</div></div></div>
+          <div class="sty" data-s="Butterfly Locs" data-p="$250" onclick="pickStyle(this)"><img src="images/styles/butterfly-locs.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Butterfly Locs</div><div class="sty-note">Hair Included</div><div class="sty-price">$250</div></div></div>
+          <div class="sty" data-s="Soft Locs" data-p="$250" onclick="pickStyle(this)"><img src="images/styles/soft-locs.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Soft Locs</div><div class="sty-note">Hair Included</div><div class="sty-price">$250</div></div></div>
+          <div class="sty" data-s="S/Medium Knotless Braids" data-p="$225" onclick="pickStyle(this)"><img src="images/styles/smedium-knotless.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">S/Medium Knotless</div><div class="sty-note">Hair Included</div><div class="sty-price">$225</div></div></div>
+          <div class="sty" data-s="Small Box Braids" data-p="$220" onclick="pickStyle(this)"><img src="images/styles/small-box-braids.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Small Box Braids</div><div class="sty-note">Hair Included</div><div class="sty-price">$220</div></div></div>
+          <div class="sty" data-s="Medium Knotless Braids" data-p="$200" onclick="pickStyle(this)"><img src="images/styles/medium-knotless.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Medium Knotless</div><div class="sty-note">Hair Included</div><div class="sty-price">$200</div></div></div>
+          <div class="sty" data-s="S/Medium Box Braids" data-p="$200" onclick="pickStyle(this)"><img src="images/styles/smedium-box-braids.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">S/Medium Box Braids</div><div class="sty-note">Hair Included</div><div class="sty-price">$200</div></div></div>
+          <div class="sty" data-s="Passion Twist" data-p="$200" onclick="pickStyle(this)"><img src="images/styles/passion-twist.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Passion Twist</div><div class="sty-note">Hair Included</div><div class="sty-price">$200</div></div></div>
+          <div class="sty" data-s="Senegalese Twist" data-p="$200" onclick="pickStyle(this)"><img src="images/styles/senegalese-twist.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Senegalese Twist</div><div class="sty-note">Hair Included</div><div class="sty-price">$200</div></div></div>
+          <div class="sty" data-s="Medium Kinky Twist" data-p="$200" onclick="pickStyle(this)"><img src="images/styles/medium-kinky-twist.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Medium Kinky Twist</div><div class="sty-note">Hair Included</div><div class="sty-price">$200</div></div></div>
+          <div class="sty" data-s="Cornrow Braids" data-p="$180" onclick="pickStyle(this)"><img src="images/styles/cornrow-braids.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Cornrow Braids</div><div class="sty-note">Hair Included</div><div class="sty-price">$180</div></div></div>
+          <div class="sty" data-s="Crochet" data-p="$120" onclick="pickStyle(this)"><img src="images/styles/crochet.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Crochet</div><div class="sty-note warn">⚠️ Hair NOT Included</div><div class="sty-price">$120up</div></div></div>
+          <div class="sty" data-s="Touch Up" data-p="$90+" onclick="pickStyle(this)"><img src="images/styles/touch-up.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Touch Up</div><div class="sty-note">Price varies</div><div class="sty-price">$90up</div></div></div>
+          <div class="sty" data-s="Re-Twist" data-p="$80" onclick="pickStyle(this)"><img src="images/styles/re-twist.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Re-Twist</div><div class="sty-note">Maintenance</div><div class="sty-price">$80</div></div></div>
+          <div class="sty" data-s="Cornrows for Wig" data-p="$50" onclick="pickStyle(this)"><img src="images/styles/cornrows-wig.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Cornrows for Wig</div><div class="sty-note">Hair Included</div><div class="sty-price">$50</div></div></div>
+          <div class="sty" data-s="Men Cornrows" data-p="$50" onclick="pickStyle(this)"><img src="images/styles/men-cornrows.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Men Cornrows</div><div class="sty-note"></div><div class="sty-price">$50</div></div></div>
+          <div class="sty" data-s="Hair Take Out" data-p="$50+" onclick="pickStyle(this)"><img src="images/styles/hair-take-out.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Hair Take Out</div><div class="sty-note">Price varies</div><div class="sty-price">$50up</div></div></div>
+          <div class="sty" data-s="Kids Braids" data-p="Call for Pricing" onclick="pickStyle(this)"><img src="images/styles/kids-braids.jpg" alt="" class="sty-img" onerror="this.style.display='none'"><div class="sty-body"><div class="sty-name">Kids Braids</div><div class="sty-note">Ages 7+ · Call for pricing</div><div class="sty-price" style="font-size:.72rem">Call for Pricing</div></div></div>
+        </div>
+        <div class="card-nav">
+          <button class="btn-back" onclick="nextStep(1)"><i class="fas fa-arrow-left"></i> Back</button>
+          <button class="btn-next" id="nx2" disabled onclick="nextStep(3)">Continue <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- ===== STEP 3: DATE & TIME ===== -->
+      <div class="card" id="card3">
+        <div class="card-head">
+          <h2 class="card-title">Date & Time</h2>
+          <p class="card-sub">Monday is closed · Select your preferred appointment slot</p>
+        </div>
+        <div class="dt-wrap">
+          <div>
+            <div class="cal-top">
+              <button class="cal-nav-btn" onclick="chMon(-1)"><i class="fas fa-chevron-left"></i></button>
+              <div class="cal-month" id="calMonth"></div>
+              <button class="cal-nav-btn" onclick="chMon(1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="cal-grid" id="calGrid"></div>
+          </div>
+          <div>
+            <div class="slots-lbl" id="slotsLbl">Select a date first</div>
+            <div class="slots-grid" id="slotsGrid"><div class="no-slot">← Pick a date</div></div>
+          </div>
+        </div>
+        <div class="card-nav">
+          <button class="btn-back" onclick="nextStep(2)"><i class="fas fa-arrow-left"></i> Back</button>
+          <button class="btn-next" id="nx3" disabled onclick="nextStep(4)">Continue <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- ===== STEP 4: PHONE NUMBER ===== -->
+      <div class="card" id="card4">
+        <div class="card-head">
+          <h2 class="card-title">Your Phone Number</h2>
+          <p class="card-sub">So Tessy can reach you directly if needed</p>
+        </div>
+        <div class="phone-card">
+          <div class="phone-icon"><i class="fas fa-phone"></i></div>
+          <p class="phone-desc">Please enter your phone number so Tessy can call you directly to discuss your appointment if needed.</p>
+          <div class="phone-field">
+            <label class="phone-label">Phone Number</label>
+            <input type="tel" id="phoneInput" class="phone-input" placeholder="e.g. 914-261-1441" oninput="validatePhone()" maxlength="15"/>
+            <div class="phone-hint">Include your area code</div>
+          </div>
+        </div>
+        <div class="card-nav">
+          <button class="btn-back" onclick="nextStep(3)"><i class="fas fa-arrow-left"></i> Back</button>
+          <button class="btn-next" id="nx4" disabled onclick="nextStep(5)">Continue <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- ===== STEP 5: PAYMENT INFO ===== -->
+      <div class="card" id="card5">
+        <div class="card-head">
+          <h2 class="card-title">Payment Information</h2>
+          <p class="card-sub">Please do not send your deposit until your appointment has been approved</p>
+        </div>
+        <div class="pay-reminder">
+          <i class="fas fa-exclamation-circle"></i>
+          <div>
+            <strong>Wait for Approval First!</strong>
+            <p>Please do not send your deposit until you have received a confirmation that your appointment has been approved. Once approved you will receive an email with instructions.</p>
+          </div>
+        </div>
+        <div class="pay-top">
+          <div class="pay-amount"><span class="pay-dollar">$50</span><span class="pay-label">NON-REFUNDABLE DEPOSIT</span></div>
+          <p>After receiving your approval email, send your $50 deposit using any of the methods below to fully secure your appointment.</p>
+        </div>
+        <div class="pay-list">
+          <div class="pay-item">
+            <div class="pay-left"><div class="pay-ico">💚</div><div><div class="pay-name">Zelle</div><div class="pay-val">914-261-1441</div></div></div>
+            <button class="copy-btn" onclick="copyIt(this,'914-261-1441','Zelle')"><i class="fas fa-copy"></i> Copy</button>
+          </div>
+          <div class="pay-item">
+            <div class="pay-left"><div class="pay-ico">💰</div><div><div class="pay-name">Cash App</div><div class="pay-val">YOUR_CASHAPP_TAG</div></div></div>
+            <button class="copy-btn" onclick="copyIt(this,'YOUR_CASHAPP_TAG','Cash App')"><i class="fas fa-copy"></i> Copy</button>
+          </div>
+          <div class="pay-item">
+            <div class="pay-left"><div class="pay-ico">🍎</div><div><div class="pay-name">Apple Pay</div><div class="pay-val">914-261-1441</div></div></div>
+            <button class="copy-btn" onclick="copyIt(this,'914-261-1441','Apple Pay')"><i class="fas fa-copy"></i> Copy</button>
+          </div>
+        </div>
+        <div class="pay-note">
+          <i class="fas fa-info-circle"></i>
+          The $50 deposit is non-refundable for cancellations or no-shows. You may reschedule once using your deposit — after that a new deposit is required. <strong>Balance is CASH ONLY</strong> on appointment day.
+        </div>
+        <div class="card-nav">
+          <button class="btn-back" onclick="nextStep(4)"><i class="fas fa-arrow-left"></i> Back</button>
+          <button class="btn-next" onclick="nextStep(6)">Continue <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- ===== STEP 6: CONFIRM ===== -->
+      <div class="card" id="card6">
+        <div class="card-head">
+          <h2 class="card-title">Confirm Booking</h2>
+          <p class="card-sub">Review your details — Tessy will approve your appointment within 24 hours</p>
+        </div>
+        <div class="confirm-list">
+          <div class="cf-row"><div class="cf-ico"><i class="fas fa-cut"></i></div><div><div class="cf-lbl">Style</div><div class="cf-val" id="cfStyle">—</div></div></div>
+          <div class="cf-row"><div class="cf-ico"><i class="fas fa-calendar-alt"></i></div><div><div class="cf-lbl">Date</div><div class="cf-val" id="cfDate">—</div></div></div>
+          <div class="cf-row"><div class="cf-ico"><i class="fas fa-clock"></i></div><div><div class="cf-lbl">Time</div><div class="cf-val" id="cfTime">—</div></div></div>
+          <div class="cf-row"><div class="cf-ico"><i class="fas fa-user"></i></div><div><div class="cf-lbl">Name</div><div class="cf-val" id="cfName">—</div></div></div>
+          <div class="cf-row"><div class="cf-ico"><i class="fas fa-envelope"></i></div><div><div class="cf-lbl">Email</div><div class="cf-val" id="cfEmail">—</div></div></div>
+          <div class="cf-row"><div class="cf-ico"><i class="fas fa-phone"></i></div><div><div class="cf-lbl">Phone</div><div class="cf-val" id="cfPhone">—</div></div></div>
+          <div class="cf-row" style="border:none"><div class="cf-ico"><i class="fas fa-map-marker-alt"></i></div><div><div class="cf-lbl">Location</div><div class="cf-val">132 Colonial Square Dr, Lindenwold NJ 08021</div></div></div>
+        </div>
+        <div class="approval-reminder">
+          <i class="fas fa-exclamation-circle"></i>
+          <div><strong>Please do not send your deposit until you have received a confirmation that your appointment has been approved.</strong></div>
+        </div>
+        <button class="btn-confirm" onclick="doConfirm()"><i class="fas fa-crown"></i> Submit Booking Request</button>
+        <p class="confirm-note">Tessy will review and approve within 24 hours. You will receive a confirmation email once approved. Remember: bring clean, detangled, blow-dried hair. Balance is CASH ONLY.</p>
+        <div class="card-nav"><button class="btn-back" onclick="nextStep(5)"><i class="fas fa-arrow-left"></i> Back</button></div>
+      </div>
+
+      <!-- ===== SUCCESS ===== -->
+      <div class="card" id="cardDone" style="display:none">
+        <div class="done-wrap">
+          <img src="images/logo.png" alt="Tessy" class="done-logo" onerror="this.outerHTML='<span style=\'font-size:3.5rem\'>👑</span>'"/>
+          <h2 class="done-title">Booking Submitted!</h2>
+          <p class="done-sub">Your request has been sent to Tessy. She will review and approve within 24 hours. You will receive a confirmation email once approved. 🌟</p>
+          <div class="done-ref" id="doneRef">REF: TESSY-000000</div>
+          <div class="done-details">
+            <div class="cf-row"><div class="cf-ico"><i class="fas fa-cut"></i></div><div><div class="cf-lbl">Style</div><div class="cf-val" id="doneStyle">—</div></div></div>
+            <div class="cf-row" style="border:none"><div class="cf-ico"><i class="fas fa-calendar-alt"></i></div><div><div class="cf-lbl">Date & Time</div><div class="cf-val" id="doneDT">—</div></div></div>
+          </div>
+          <div class="done-btns">
+            <a href="index.html" class="btn-home">Back to Home</a>
+            <button class="btn-print" onclick="window.print()">Save Confirmation</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="booking.js"></script>
+</body>
+</html>
