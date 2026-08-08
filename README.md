@@ -6,15 +6,6 @@ A full booking website for an African hair braiding salon in Lindenwold, NJ. Cus
 
 ---
 
-## Screenshots
-
-<!-- Add your screenshots to a /screenshots folder and update the paths below -->
-| Home | Booking Flow | Gallery |
-|------|--------------|---------|
-| ![Home](screenshots/home.png) | ![Booking](screenshots/booking.png) | ![Gallery](screenshots/gallery.png) |
-
----
-
 ## Features
 
 - **Google Sign-In** via Supabase Auth, with session persistence across pages
